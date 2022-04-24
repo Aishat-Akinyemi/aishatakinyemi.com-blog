@@ -1,12 +1,12 @@
-## Set up your local development environment for NEAR smart contracts
+## Setting up Local Development Environment for NEAR smart contracts
 
 Welcome on your journey on smart contract development on NEAR blockchain protocol. It would be fun and challenging — wishing you lots of AHA 💡 moments. 
 
 This article aims to help you setup your local system for smartcontract development on NEAR protocol. It includes guides on installing WSL for Windows users, and steps for installing the necessary programs and libraries.
 
-> NEAR is a simple, scalable and fast layer 1 blockchain protocol used for building decentralised applications. NEAR runs smartcontracts compiled to WebAssembly (wasm).  Currently there are Rust and AssemblyScript (a dialect of Typescript) official SDKs.
+NEAR is a simple, scalable and fast layer 1 blockchain protocol used for building decentralised applications. NEAR runs smartcontracts compiled to WebAssembly (wasm).  Currently there are Rust and AssemblyScript (a dialect of Typescript) official SDKs.
 
-*NOTE: You do not have to do this to start developing on NEAR — You can get started in seconds by opening [existing contracts on Gitpod](https://examples.near.org/) online IDE. *
+*NOTE: You do not have to do this to start developing on NEAR — You can get started in seconds by opening [existing contracts on Gitpod](https://examples.near.org/) online IDE.*
 
 ## **Setting up Windows Subsystem for Linux (WSL).**
 
