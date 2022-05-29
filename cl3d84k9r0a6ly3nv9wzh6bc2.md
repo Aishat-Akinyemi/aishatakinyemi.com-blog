@@ -4,7 +4,7 @@
 
 Data is important and the technologies built around its transmission and dissemination influence the world at large. From ancient storytellers to writing systems, through to the invention of the Internet and the Web that both revolutionized how society accesses, views, and uses information. 
 
-The recent wave of disruptive information technology innovations are decentralized networks. Discussions about data storage in web 3.0 (the decentralized web) frequently refer to decentralized storage networks? What is decentralized storage?  How different is it from the traditional cloud storage? How do decentralized storage networks work? And what are the unique applications of, and possible issues with new generation decentralized storage networks?
+Decentralization is the crux of the current wave of disruptive information technology innovations. Discussions about data storage in web 3.0 (the decentralized web) frequently refer to decentralized storage networks. What is decentralized storage?  How different is it from traditional cloud storage? How do decentralized storage networks work? And what are the unique applications of, and possible issues with new generation decentralized storage networks?
 
 I will discuss decentralized storage networks and reading this explainer will provide answers to these questions, and hopefully, get you excited and interested in the countless potentials of decentralized storage networks.  
 
@@ -20,9 +20,9 @@ Decentralization is the distribution of access and control of a system to the pa
 
 ## Decentralized Storage
 
-A decentralized storage network (DSN a.k.a. decentralized file sharing network),  is a distributed peer-to-peer (p2p) censorship-resistant network of untrusting nodes cooperating to provide storage capacity. These nodes store chunks of data, each node dedicating disk space, memory, bandwidth, and CPU.  
+A decentralized storage network (DSN a.k.a. decentralized file-sharing network),  is a distributed peer-to-peer (p2p) censorship-resistant network of untrusting nodes cooperating to provide storage capacity. These nodes store chunks of data, each node dedicating disk space, memory, bandwidth, and CPU.  
 
-Decentralized storage systems are designed to be fault tolerant with intentional data redundancy techniques built in to provide resilience and no single point of failure. Trustless data security and recovery should not be affected by nodes joining or leaving the network. 
+Decentralized storage systems are designed to be fault-tolerant with intentional data redundancy techniques built in to provide resilience and no single point of failure. Trustless data security and recovery should not be affected by nodes joining or leaving the network. 
 
 One of the peculiarities of this model of data storage is that it shifts resource addressing from a location-centric approach to a content-centric approach.
 
@@ -30,7 +30,7 @@ One of the peculiarities of this model of data storage is that it shifts resourc
 
 ### The generations of decentralized storage networks.
 
-While it has recently garnered much attention DSNs are not a new thing. The first generation of p2p DSNs like Napster, Torrents etc. were often used for sharing music and video files.  Peers maintained copies of fragments of files on their computer. This fragment is then shared with other node(s) in the network, upon request. Peers could decide to stay online or not, with Torrents, the more a peer provided to the network, the more it enjoyed the download process. 
+While it has recently garnered much attention DSNs are not a new thing. The first generation of p2p DSNs like Napster, Torrents, etc. were often used for sharing music and video files.  Peers maintained copies of fragments of files on their computers. This fragment is then shared with other node(s) in the network, upon request. Peers could decide to stay online or not, with Torrents, the more a peer provided to the network, the more it enjoyed the download process. 
 
 Lots of work has gone into developing new generation DSNs, built on new and existing technology to provide global, low-latent decentralized distribution of files, websites, applications, and data.
 
@@ -50,7 +50,7 @@ In the next section, I discuss the technical concepts common in most DSN impleme
 Some of the underlying technologies include Torrent, Erasure coding techniques to ensure redundancy, Merkle DAG, Distributed Hash Tables, Blockchain technologies and Consensus mechanisms, etc.
 
 ![StorageWorks-01-1.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1652977172874/yVNlxLJLI.jpg align="left") [Technical Overview of DS - Alex Morris](https://weteachblockchain.org/courses/decentralized-storage/2/technical_overview)
-- **Data Sharding:** fragmenting a file to be stored in the network into chunks of data. In some DSN, e.g. Safenetwork and Storj, the data is encrypted before its sharded
+- **Data Sharding:** fragmenting a file to be stored in the network into chunks of data. In some DSN, e.g. Safenetwork and Storj, the data is encrypted before it is sharded
 - **Content addressing**: As stated earlier, DSN stores and retrieves data based on its contents. This is achieved through hashing algorithms and Merkle Directed Acyclic Graphs (DAG) and Distributed Hash Tables.
     
     The data to be addressed is passed through a hash function to generate its CID. A hash function is (a) deterministic: the same inputs always return the same CID. (b) a one-way function – the input data cannot be derived from its CID. (c) the CID is unique, a slight change in data results in a different CID.    
@@ -61,7 +61,7 @@ Some of the underlying technologies include Torrent, Erasure coding techniques t
     
     **Directed graph**: has a sense of direction of how nodes are linked — which node contains which nodes. e.g. a folder has a file; a file has data content, not the other way around.
     
-    **Acyclic graph:** represents unidirectional pairwise relationship between nodes e.g. you can only move from a parent node to a child node. 
+    **Acyclic graph:** represents a unidirectional pairwise relationship between nodes e.g. you can only move from a parent node to a child node. 
     
     Merkle DAGs are used to represent hierarchical relationships. Since a CID is unique, DSNs, and other systems like Git, use them to represent relationships between objects with Merkle DAG.
 ![Merkle DAG.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1652976248461/8AxnmYpki.png align="left")
@@ -70,14 +70,14 @@ A node’s CID depends on every single one of its descendants in the Merkle DAG.
 
 Merkle DAG lets us link chunks of content, files, folders, and directories together and tracks revisions or changes in contents. A file’s CID would consist of CIDs of the data chunks of its content. A user can then retrieve the whole of the file with the file’s CID.
 
-CID exposes an important feature of DSNs permanence because records of CIDs are kept. Additionally, we can choose to retrieve the sub-content from a DAG with its CID, and embed it in another larger DAG. This allows the deduplication, efficiently storing data by encoding redundant sections as links
+CID exposes an important feature of DSNs permanence because records of CIDs are kept. Additionally, we can choose to retrieve the sub-content from a DAG with its CID, and embed it in another larger DAG. This allows the deduplication, efficiently storing data by encoding redundant sections as links.
 
 - **Broadcasting:** the chunks of data are distributed in the network for storage by the peers.  No single peer holds the entirety of the data, and data is replicated across peer nodes.
 - **Content Look-up:**  DSN uses Distributed Hash Tables (DHT) for content routing. DHT is used in mapping CIDs to peers that have the data (provider records), as well as peer IDs to address at which the peer can be reached. When you request for your file, a node in the network posts a request to its peers most likely to have the data based on the CID lookup in the DHT. 
-- **Caching**: The first node to reply supplies the data. The data is then stored in the cache of the requesting node and it can provide it upon request. Nodes can store data that interest them, they may choose to pin the data to persist it. This relates to incentivization
+- **Caching**: The first node to reply supplies the data. The data is then stored in the cache of the requesting node and it can provide it upon request. Nodes can store data that interest them, they may choose to pin the data to persist it. This relates to incentivization.
 - **Incentivization:** data is guaranteed to persist in a DSN as long as a node stores it, multiple measures are taken to avoid data loss, including rewarding node operators. Many DSNs have game theoric incentives to encourage participation and discourage malice or negligence. Storage providers enter into storage contracts with users who pay with tokens. Some DSNs such as Filecoin have time-based contracts, while Arweave and Safe have a once-off payment structure. Most DSNs have blockchain-based incentivization mechanisms.
 - **Verifiable Content Persistence:** these mechanisms are implemented by networks to verify that data storage claims are being met by nodes and detect a peer’s malicious behaviors.  
-They are probabilistic challenges that prove with a high degree of certainty that a provider is fulfilling its storage agreement, well-behaved and not susceptible to hardware failure. 
+They are probabilistic challenges that prove with a high degree of certainty that a provider is fulfilling its storage agreement, well-behaved, and not susceptible to hardware failure. 
     
     Examples of such are Proof-of-space, Proof-of-access, Proof-of-Work, succinct Proof of Random Access, etc.
 
