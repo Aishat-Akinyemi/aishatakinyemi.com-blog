@@ -33,7 +33,7 @@ Remember, for Windows 10 and 11 WSL now comes with Ubuntu distro by default, and
 ### Essential Programs
 
 - **Node**
-As at the time of writing this, this [Nodesource repo](https://github.com/nodesource/distributions/blob/master/README.md#debinstall) contains a list of command to run to install Node.js on various Linux distro.
+Follow the instructions here  [Microsoft official docs](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm) to install nvm and nodejs on your wsl linux distro.
 
    On WSL ensure you [change the npm default directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory), to avoid permission issues with WSL.
 
