@@ -1,8 +1,8 @@
-## Setting up Local Development Environment for NEAR smart contracts
+# Setting up Local Development Environment for NEAR smart contracts
 
 Welcome on your journey on smart contract development on NEAR blockchain protocol. It would be fun and challenging — wishing you lots of AHA 💡 moments. 
 
-This article aims to help you setup your local system for smartcontract development on NEAR protocol. It includes guides on installing WSL for Windows users, and steps for installing the necessary programs and libraries.
+This article aims to help you set up your local system for smartcontract development on NEAR protocol. It includes guides on installing WSL for Windows users and steps for installing the necessary programs and libraries.
 
 NEAR is a simple, scalable and fast layer 1 blockchain protocol used for building decentralised applications. NEAR runs smartcontracts compiled to WebAssembly (wasm).  Currently there are Rust and AssemblyScript (a dialect of Typescript) official SDKs.
 
@@ -28,17 +28,17 @@ Remember, for Windows 10 and 11 WSL now comes with Ubuntu distro by default, and
 
 ## **Installing essential program and libraries (Linux, MacOs and WSL).** <span id="install-lib"><span>
 
-*If you are on Windows ensure you’re running the following commands in WSL. There is also an Apple M1 specific workarounds mentioned in this post.*
+*If you are on Windows ensure you’re running the following commands in WSL. There is also an Apple M1-specific workaround mentioned in this post.*
 
 ### Essential Programs
 
 - **Node**
-Follow the instructions here  [Microsoft official docs](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm) to install nvm and nodejs on your wsl linux distro.
+Follow the instructions here  [Microsoft official docs](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm) to install nvm on your WSL Linux distro.
 
-   On WSL ensure you [change the npm default directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory), to avoid permission issues with WSL.
+   On WSL installing nvm as opposed to manual nodejs lets you avoid permission issues with WSL. However, if you still face such you might consider [changing the npm default directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory).
 
 - **Yarn**
-Using node package manager, that comes with Node.js (already installed in the previous step. Run `npm install --global yarn` on the command line to install yarn globally.
+Using node package manager, which comes with Node.js (already installed in the previous step. Run `npm install --global yarn` on the command line to install yarn globally.
 
 - **Rust**
 Install rust using Rustup by running the following command.
@@ -47,7 +47,7 @@ Install rust using Rustup by running the following command.
 
    Add wasm target to your RUST toolchain by running this  `rustup target add wasm32-unknown-unknown` command.
 
-   I mentioned earlier that  NEAR currently has SDKs for Rust and AssemblyScript. The preferred programming language for writing smart contracts on NEAR. If you do not have prior experience writing Rust, I’d recommend you start with AS then subsequently learn RUST.
+   I mentioned earlier that  NEAR currently has SDKs for Rust and AssemblyScript. The preferred programming language for writing smart contracts on NEAR. If you do not have prior experience writing Rust, I’d recommend you start with AS and then subsequently learn RUST.
 
 - **AssemblyScript**
 To install AS globally run `npm install --global  assemblyscript` . 
@@ -60,7 +60,7 @@ These are the library for easy writing Smart contracts on NEAR.  Apple M1 users 
 You will use NEAR CLI to interact with the NEAR blockchain. To install, run `npm i -g near-cli`
 
 - **Rust SDK**
-You will have to add this in your cargo.toml file each time when creating a new Rust smart contract project. There are various ways of starting a Rust this, and more instructions can be [found here](https://www.near-sdk.io/).
+You will have to add this in your cargo.toml file each time when creating a new Rust smart contract project. There are various ways of starting a Rust, and more instructions can be [found here](https://www.near-sdk.io/).
 
 - **AssemblyScript SDK**
 To use near-as-sdk run `yarn add -D near-sdk-as` 
@@ -71,7 +71,7 @@ Run `npm i -g near-api-js` to install the JS library that would connect your app
 ### Creating your NEAR Account.
 
 You need a NEAR account to interact with the blockchain, you will also use accounts when deploying smartcontracts.
-You can [create account in the mainnet](https://wallet.near.org/) (you can think of this as the live network of near protocol) and for development purposes you need to create account on [the testnet](https://wallet.testnet.near.org/). This is an easy process, ensure you keep your passphrase safe.
+You can [create account in the mainnet](https://wallet.near.org/) (you can think of this as the live network of near protocol) and for development purposes, you need to create an account on [the testnet](https://wallet.testnet.near.org/). This is an easy process, ensure you keep your passphrase safe.
 
 You may check these [step-by-step](https://docs.near.org/docs/develop/basics/create-account) instructions on creating accounts.
 
