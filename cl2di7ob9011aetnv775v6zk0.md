@@ -1,17 +1,33 @@
-## How to create Near AssemblyScript smart contract project.
+---
+title: "How to create Near AssemblyScript smart contract project."
+datePublished: Sun Apr 24 2022 16:27:42 GMT+0000 (Coordinated Universal Time)
+cuid: cl2di7ob9011aetnv775v6zk0
+slug: how-to-create-near-assemblyscript-smart-contract-project
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1650817000464/XP1WCP2rS.png
+tags: blockchain, web3, learn-coding, thw-web3
 
-In this article, I’ll walk you through how to setup NEAR smart contracts in AssemblyScript project in few mins. You will find a copy of the project built following these instructions in this [github repository](https://github.com/Aishat-Akinyemi/Near-AssemblyScript-Contract-template),  be sure to follow the steps through to see how it all came together.
+---
+
+**<mark>NOTE: THIS ARTICLE IS NOW ARCHIVED AS THE NEAR ASSEMBLYSCRIPT SDK IS NO LONGER SUPPORTED BY NEAR.</mark>**  
+  
+In this article, I’ll walk you through how to setup NEAR smart contracts in AssemblyScript project in few mins. You will find a copy of the project built following these instructions in this [github repository](https://github.com/Aishat-Akinyemi/Near-AssemblyScript-Contract-template), be sure to follow the steps through to see how it all came together.
 
 ## Assumption
 
 I assume you have set up your local NEAR smart contract development environment, you can [check out this guide](https://aishatakinyemi.com/set-up-your-local-development-environment-for-near-smart-contracts) if you haven’t done so.
 
+**<mark>NOTE: THIS ARTICLE IS NOW ARCHIVED AS THE NEAR ASSEMBLYSCRIPT SDK IS NO LONGER SUPPORTED BY NEAR.</mark>**
+
 ## Steps to create your Near Assemblyscript smart contract project
 
 1. Create a folder for the project, give it a suitable name
-2. Run `npx asinit .` 
-3. In the terminal, add near-sdk-as by running `yarn add -D near-sdk-as` 
+    
+2. Run `npx asinit .`
+    
+3. In the terminal, add near-sdk-as by running `yarn add -D near-sdk-as`
+    
 4. Rename the `build` folder to `out` . We’re trying to follow the official near practice as much as possible. When we build the project, the output WASM file should be put in this folder.
+    
 5. Remove the contents of the `asconfig.json` file in the root. The file should contain the following config code.
     
     ```json
@@ -30,23 +46,25 @@ I assume you have set up your local NEAR smart contract development environment,
     ```
     
 7. Delete the `index.js` file from the root folder.
+    
 8. Delete the `tests` folder. Our tests will be saved in another location.
+    
 9. Run the following set of commands:
     
     ```jsx
     cd assembly && touch as_types.d.ts && mkdir __tests__  && cd __tests__ && touch as-pect.d.ts main.unit.spec.ts
     ```
     
-    The `assembly` folder would contain our smart contract code, tests and some configuration files. 
-    The command did the following:
+    The `assembly` folder would contain our smart contract code, tests and some configuration files. The command did the following:
     
-    - it added the assembly-script type definition file `as_types.d.ts` wherein we would add references to include near-sdk-as types
-    - it created a `__tests__` folder for our As-spect tests and adds test file  `main.unit.spec.ts` and type definition file `as-pect.d.ts`.
+    * it added the assembly-script type definition file `as_types.d.ts` wherein we would add references to include near-sdk-as types
+        
+    * it created a `__tests__` folder for our As-spect tests and adds test file `main.unit.spec.ts` and type definition file `as-pect.d.ts`.
+        
 10. In `assembly/as_types.d.ts` add this
     
-    ```
+    ```plaintext
     /// <reference types="near-sdk-as/assembly/as_types" />
-    
     ```
     
 11. In `assembly/__tests__/as-pect.d.ts` add this
@@ -55,9 +73,9 @@ I assume you have set up your local NEAR smart contract development environment,
     /// <reference types="@as-pect/assembly/types/as-pect" />
     ```
     
-12. Edit the `scripts` in the `package.json` 
+12. Edit the `scripts` in the `package.json`
     
-    Remove the `scripts`  values and have the below code instead.  Leave everything else as is.
+    Remove the `scripts` values and have the below code instead. Leave everything else as is.
     
     ```json
     {
@@ -70,8 +88,10 @@ I assume you have set up your local NEAR smart contract development environment,
     }
     ```
     
-13. In the terminal, go back to the project root folder to initialise git by running in root folder `git init & touch .gitignore` 
+13. In the terminal, go back to the project root folder to initialise git by running in root folder `git init & touch .gitignore`
+    
 14. In the `gitignore` file add `node_modules`
+    
 15. After all the above step your file structure should be similar to this
     
     ```json
@@ -88,7 +108,7 @@ I assume you have set up your local NEAR smart contract development environment,
     ├── as-pect.config.js            
     ├── asconfig.json               
     ├── package.json                 
-    └── yarn.lock                   
+    └── yarn.lock
     ```
     
 
@@ -105,7 +125,7 @@ I assume you have set up your local NEAR smart contract development environment,
     }
     ```
     
-2. Add unit tests for the above function into  `assembly/__tests__/main.unit.spec.ts`
+2. Add unit tests for the above function into `assembly/__tests__/main.unit.spec.ts`
     
     ```tsx
     import { Context, VMContext } from 'near-sdk-as';
@@ -127,16 +147,18 @@ I assume you have set up your local NEAR smart contract development environment,
     ```
     
 3. Let’s test our smartcontract by running `npm run test`.
+    
 4. Build the project by running `npm run build`. This would result in a .wasm file being added in `out/release` folder.
+    
 5. To deploy into the d the newly compiled wasm file
     
     ```bash
     near dev-deploy <path to output wasmFile>
     ```
     
-     e.g. in my case I ran `near dev-deploy out/release/Near-AssemblyScript-Contract-template.wasm`
+    e.g. in my case I ran `near dev-deploy out/release/Near-AssemblyScript-Contract-template.wasm`
     
-    You can now call our smart contract function  with near cli, you can read more on  how to use near-cli here.
+    You can now call our smart contract function with near cli, you can read more on how to use near-cli here.
     
     You are all set!, you may now start building those awesome contracts — happy building 💫.
     
